@@ -123,13 +123,27 @@ class MainApp < Sinatra::Base
     #redirect "#{@path_prefix}/"
   end
 
-  #チャンネル作成ページ
+  #チャンネル作成ページ(POST)
+  post '/channels/new' do
+    channel = Channel.new(:title => params[:title],:elapsetime => params[:etime], :starttime => params[:stime],:rows => params[:rows],:defaultname => params[:dname])
+    channel.save
+    return "Hello World!"
+    #redirect "#{@path_prefix}/"
+  end
+
+  #コンテンツ作成ページ
   get '/contents/new' do
     content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
     content.save
     redirect "#{@path_prefix}/"
   end
 
+  #コンテンツ作成ページ(POST)
+  post '/contents/new' do
+    content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
+    content.save
+    redirect "#{@path_prefix}/"
+  end
 
   post '/' do
     #  title = "登板スクリプト"
