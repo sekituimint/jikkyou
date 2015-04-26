@@ -50,7 +50,7 @@ class MainApp < Sinatra::Base
   configure :production do
     register Sinatra::ConfigFile
     config_file 'config.yml'
-    #settings.path_prefix = ''
+    settings.path_prefix = ''
   end
 
 
