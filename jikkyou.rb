@@ -119,16 +119,24 @@ class MainApp < Sinatra::Base
   get '/channels/new' do
     channel = Channel.new(:title => params[:title],:elapsetime => params[:etime], :starttime => params[:stime],:rows => params[:rows],:defaultname => params[:dname])
     channel.save
-    return "Hello World!"
-    #redirect "#{@path_prefix}/"
+    rtn = {
+        id: channel.id,
+        title: channel.title,
+        stime: channel.starttime
+    }
+    rtn.to_json
   end
 
   #チャンネル作成ページ(POST)
   post '/channels/new' do
     channel = Channel.new(:title => params[:title],:elapsetime => params[:etime], :starttime => params[:stime],:rows => params[:rows],:defaultname => params[:dname])
     channel.save
-    return "Hello World!"
-    #redirect "#{@path_prefix}/"
+    rtn = {
+        id: channel.id,
+        title: channel.title,
+        stime: channel.starttime
+    }
+    rtn.to_json
   end
 
   #コンテンツ作成ページ
