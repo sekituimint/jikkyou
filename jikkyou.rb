@@ -143,14 +143,22 @@ class MainApp < Sinatra::Base
   get '/contents/new' do
     content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
     content.save
-    redirect "#{@path_prefix}/"
+    rtn = {
+        id: content.id,
+        channelid: content.channelid,
+    }
+    rtn.to_json
   end
 
   #コンテンツ作成ページ(POST)
   post '/contents/new' do
     content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
     content.save
-    redirect "#{@path_prefix}/"
+    rtn = {
+        id: content.id,
+        channelid: content.channelid,
+    }
+    rtn.to_json
   end
 
   post '/' do
