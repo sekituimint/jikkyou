@@ -169,7 +169,7 @@ class MainApp < Sinatra::Base
 
   #コンテンツ作成ページ
   get '/contents/new' do
-    content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
+    content = Content.new(:channelid => params[:cid],:tweets => params[:tweets],:nowtime  => params[:ntime], :tweetstime => params[:ttime],:value => params[:value])
     content.save
     rtn = {
         id: content.id,
@@ -180,7 +180,7 @@ class MainApp < Sinatra::Base
 
   #コンテンツ作成ページ(POST)
   post '/contents/new' do
-    content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
+    content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ntime],:value => params[:value])
     content.save
     rtn = {
         id: content.id,

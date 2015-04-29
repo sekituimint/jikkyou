@@ -9,8 +9,71 @@
             %a{:href => "#{@path_prefix}/jikkyoulist/"}
               実況一覧
 .row-fluid
+  .span2
   .span6
-    %h1 #{@channel.title}
+    %span{:style => "line-height:24px;"}
+      %font{:size => "5",:color => "blue"}
+        %b
+          #{@channel.title}
+      %font{:size => "3",:color => "white"}
+        ="....."
+      %font{:size => "4",:color => "blue"}
+        =@channel.rows
+      %font{:size => "3"}
+        ="ツイート"
+      %br
+      %br
+      - @contents.each_with_index do |content,i|
+        #{i+1}
+        =" : "
+        %font{:color => "green"}
+          =@channel.defaultname
+        =" : "
+        =content.nowtime
+        ="("
+        #{content.tweetstime/60}
+        =":"
+        #{content.tweetstime%60}
+        =")"
+
+        %br
+        - if content.value == 0
+          %font{:size => "4"}
+            %b
+              =content.tweets
+        - elsif content.value == 1
+          %font{:size => "5"}
+            %span{:style => "line-height:32px;"}
+              %b
+                =content.tweets
+        - elsif content.value == 2
+          %font{:size => "6",:color => "blue"}
+            %span{:style => "line-height:42px;"}
+              %b
+                =content.tweets
+        - elsif content.value == 3
+          %font{:size => "7",:color => "red"}
+            %span{:style => "line-height:56px;"}
+              %b
+                =content.tweets
+        - elsif content.value == 4
+          %font{:size => "3"}
+            %span{:style => "line-height:22px;"}
+              %b
+                =content.tweets
+        - elsif content.value == 5
+          %font{:size => "2"}
+            %span{:style => "line-height:18px;"}
+              =content.tweets
+        - elsif content.value == 6
+          %font{:size => "1",:color => "silver"}
+            %span{:style => "line-height:16px;"}
+              =content.tweets
+
+
+
+        %br
+        %br
     %h2 実況一覧
     %table{:class => "table table-hover"}
       %thead
@@ -27,4 +90,4 @@
               =content.tweetstime
             %td
               =content.value
-.span6
+  .span4
