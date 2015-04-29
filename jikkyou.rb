@@ -139,6 +139,34 @@ class MainApp < Sinatra::Base
     rtn.to_json
   end
 
+  #実況終了時チャンネル更新ページ
+  get '/channels/end' do
+    channel = Channel.where(:id => params[:cid])[0]
+    channel.rows = params[:rows]
+    channel.elapsetime = params[:etime]
+    channel.save
+    rtn = {
+        id: channel.id,
+        title: channel.title,
+        stime: channel.starttime
+    }
+    rtn.to_json
+  end
+
+  #実況終了時チャンネル更新ページ(POST)
+  post '/channels/end' do
+    channel = Channel.where(:id => params[:cid])[0]
+    channel.rows = params[:rows]
+    channel.elapsetime = params[:etime]
+    channel.save
+    rtn = {
+        id: channel.id,
+        title: channel.title,
+        stime: channel.starttime
+    }
+    rtn.to_json
+  end
+
   #コンテンツ作成ページ
   get '/contents/new' do
     content = Content.new(:channelid => params[:cid],:tweets => params[:tweets], :tweetstime => params[:ttime],:value => params[:value])
