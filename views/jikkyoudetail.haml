@@ -1,16 +1,16 @@
-:javascript
-  <!--
-  document.title="アッハーン";
-  //-->
 .navbar.navbar-inverse
   .navbar-inner
     .container-fluid
       %a.brand{:href => "#{@path_prefix}/"}
-        実況アプリ
+        俺用実況アプリ
       .nav-collapse.collapse
 .row-fluid
   .span2
   .span6
+    :javascript
+      <!--
+      document.title = #{@channel.title};
+      //-->
     %div{:id => "content"}
       %div{:id => "main", :class => "clearfix"}
         %div{:id => "article"}
@@ -41,18 +41,19 @@
             %span{:style => "line-height:24px;"}
               %div{:class => "article_body"}
                 - @contents.each_with_index do |content,i|
-                  #{i+1}
-                  =" : "
-                  %font{:color => "green"}
-                    =@channel.defaultname
-                  =" : "
-                  =content.nowtime
-                  ="("
-                  #{sprintf("%02d", content.tweetstime/60)}
-                  =":"
-                  #{sprintf("%02d",content.tweetstime%60)}
-                  =")"
-
+                  %font{:size => "3"}
+                    #{i+1}
+                    =" : "
+                    %font{:color => "green"}
+                      =@channel.defaultname
+                    =" : "
+                    =content.nowtime
+                    %font{:size => "2"}
+                      ="("
+                      #{sprintf("%02d", content.tweetstime/60)}
+                      =":"
+                      #{sprintf("%02d",content.tweetstime%60)}
+                      =")"
                   %br
                   - if content.value == 0
                     %font{:size => "4"}
