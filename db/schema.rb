@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150425080321) do
   create_table "channels", force: :cascade do |t|
     t.string   "title"
     t.integer  "elapsetime"
-    t.integer  "starttime"
+    t.string   "starttime"
     t.integer  "rows"
     t.string   "defaultname"
     t.datetime "created_at"
