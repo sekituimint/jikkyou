@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150425080321) do
   create_table "contents", force: :cascade do |t|
     t.integer  "channelid"
     t.integer  "tweetstime"
+    t.string   "nowtime"
     t.string   "tweets"
     t.integer  "value"
     t.datetime "created_at"
