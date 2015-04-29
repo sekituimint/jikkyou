@@ -9,7 +9,7 @@
   .span6
     :javascript
       <!--
-      document.title = #{@channel.title};
+      document.title = "俺用実況アプリ";
       //-->
     %div{:id => "content"}
       %div{:id => "main", :class => "clearfix"}
@@ -100,5 +100,15 @@
                 .sidebody.category-parent
                   %a{:href => "#{@path_prefix}/channel/detail/#{channel.id}"  }
                     =channel.title
+            .sidebottom
+        #aside{:style => "position: static; margin: 0px;"}
+          .plugin-categorize.sidewrapper
+            .sidetitlebody
+              .sidetitle
+                ="月別一覧"
+            .sidetop
+            .side
+              .sidebody.category-parent
+                作成中
             .sidebottom
   .span4
