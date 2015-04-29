@@ -1,0 +1,1230 @@
+@charset "utf-8";
+
+#header2, #ad2 ,.maist{
+    display: none !important;
+}
+
+/*--------------------------------------------------
+  class.css
+--------------------------------------------------*/
+.clearfix,.side ul.recent-article-image li{/zoom:1;}
+.clearfix:after,.side ul.recent-article-image li:after{
+	height:0;
+	display:block;
+	content:'';
+	clear:both;
+}
+
+
+/*--------------------------------------------------
+  reset.css
+--------------------------------------------------*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}body{line-height:14px;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}navul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;}/*changecolourstosuityourneeds*/ins{background-color:#ff9;color:#000;text-decoration:none;}/*changecolourstosuityourneeds*/mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold;}del{text-decoration:line-through;}abbr[title],dfn[title]{border-bottom:1pxdashed;cursor:help;}table{border-collapse:collapse;border-spacing:0;}
+hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:10px 0;padding:0;}
+input,select{vertical-align:middle;}
+ul{list-style:none;}
+
+/*--------------------------------------------------
+	default
+--------------------------------------------------*/
+
+body {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_body.png") repeat scroll center 0 #EEEEEE;
+    font-size: 13px;
+	*font-size: small;
+	*font: x-small;
+	line-height: 1.2;
+	position: relative;
+	color:#222;
+}
+
+body,textarea{font-family:"Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","ＭＳ Ｐゴシック",sans-serif;}
+
+input,select{font-family:Helvetica, Arial, sans-serif;}
+
+a:link,a:visited{color:#0066CC;text-decoration:none;}
+a:hover{color:#FF9966;text-decoration:none;}
+.article_ad a img,#header_ad a img,#aside a img{
+	-webkit-transition:0.25s linear;
+	-moz-transition:0.25s linear;
+	-o-transition:0.25s linear;
+}
+.article_ad a:hover img,.article_body a:hover img,#header_ad a:hover img,#aside a:hover img{opacity: 0.8;}
+.plugin-memo a img,.recent-article-image a img{
+	border:1px solid #FFF;
+	-webkit-transition:0.25s linear;
+	-moz-transition:0.25s linear;
+	-o-transition:0.25s linear;
+}
+.article_body a img{
+	border: 1px solid #AAA;
+	-webkit-transition:0.25s linear;
+	-moz-transition:0.25s linear;
+	-o-transition:0.25s linear;
+}
+.article_body a:hover img,.plugin-memo a:hover img,.recent-article-image a:hover img{border: 1px solid #FF9966;}
+
+.article_body a {
+    text-decoration: underline;
+}
+
+
+/*--------------------------------------------------
+	gnav
+--------------------------------------------------*/
+#gnav {
+    height: 35px;
+    left: 240px;
+    position: absolute;
+    top: -150px;
+}
+
+#gnav li {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_navli.png") repeat-y scroll right 0 transparent;
+    float: left;
+    text-align: center;
+}
+
+#gnav li a {
+    background-color: transparent;
+    color: #FFFFFF;
+    display: block;
+    line-height: 35px;
+    width: 114px;
+}
+
+#gnav li a img {
+    margin-right: 4px;
+    vertical-align: text-top;
+}
+
+#gnav li a:hover {
+    background-color:#111;
+}
+
+/*--------------------------------------------------
+	header
+--------------------------------------------------*/
+#header {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_header.png") repeat-x scroll center 0 transparent;
+    height: 150px;
+}
+
+#header_in {
+    margin: 0 auto;
+    position: relative;
+    width: 1000px;
+    height: 150px;
+}
+
+#header h1 {
+    left: 0;
+    position: absolute;
+    text-indent: -9999px;
+    top: 0;
+}
+
+#header h1 a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_logo.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 143px;
+    width: 241px;
+}
+
+#header #follow {
+    bottom: 16px;
+    left: 45px;
+    position: absolute;
+    z-index: 10;
+}
+
+#header_ad {
+    position: absolute;
+    right: 8px;
+    top: 44px;
+    width: 728px;
+}
+
+/*--------------------------------------------------
+	content
+--------------------------------------------------*/
+#content {
+    margin: 0 auto;
+    position: relative;
+    width: 1000px;
+}
+
+
+/*--------------------------------------------------
+	content
+--------------------------------------------------*/
+#article {
+    float: right;
+    width: 752px;
+}
+
+#aside {
+    float: left;
+    width: 240px;
+}
+
+
+/*--------------------------------------------------
+	tweet_rank comme_rank amazon_rank
+--------------------------------------------------*/
+#tweet_rank {
+    height: 116px;
+    margin-bottom: 6px;
+    overflow: hidden;
+}
+
+#tweet_rank li {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_rtrankbg.png") no-repeat scroll 2px 10px #FFFFFF;
+    border: 2px solid #AAA;
+    float: left;
+    height: 110px;
+    margin-right: 8px;
+    overflow: hidden;
+    padding: 1px;
+    position: relative;
+    vertical-align: top;
+    width: 176px;
+    z-index: 1;
+}
+
+#tweet_rank li:hover {
+	border: 2px solid #FF9966;
+}
+
+#tweet_rank li + li + li + li {
+    margin-right: 0;
+}
+
+#tweet_rank li .hover {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_twtrank.png") repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 30px;
+    line-height: 16px;
+    overflow: hidden;
+    padding: 4px 2px;
+    position: absolute;
+    top: 73px;
+    width: 172px;
+}
+
+
+#tweet_rank li img {
+    height: 110px;
+    width: 176px;
+}
+
+#tweet_rank .twcm {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_rt.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    height: 43px;
+    line-height: 12px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 45px;
+    z-index: 100;
+}
+
+#tweet_rank2 {
+    height: 116px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#tweet_rank2 li {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_rtrankbg.png") no-repeat scroll 2px 10px #FFFFFF;
+    border: 1px solid #AAA;
+    float: left;
+    height: 110px;
+    margin-left: 8px;
+    overflow: hidden;
+    padding: 1px;
+    position: relative;
+    vertical-align: top;
+    width: 173px;
+    z-index: 1;
+}
+
+#tweet_rank2 li .hover {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_twtrank.png") repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 30px;
+    line-height: 16px;
+    overflow: hidden;
+    padding: 4px 2px;
+    position: absolute;
+    top: 73px;
+    width: 169px;
+}
+
+#tweet_rank2 li img {
+    height: 110px;
+    width: 173px;
+}
+
+#tweet_rank2 .twcm {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_rt.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    height: 43px;
+    line-height: 12px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 45px;
+    z-index: 100;
+}
+
+#comme_rank {
+    height: 116px;
+    overflow: hidden;
+}
+
+#comme_rank li {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_rtrankbg.png") no-repeat scroll 2px 10px #FFFFFF;
+    border: 1px solid #AAA;
+    float: left;
+    height: 110px;
+    margin-left: 8px;
+    overflow: hidden;
+    padding: 1px;
+    position: relative;
+    vertical-align: top;
+    width: 173px;
+    z-index: 1;
+}
+
+#comme_rank li .hover {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_twtrank.png") repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 30px;
+    line-height: 16px;
+    overflow: hidden;
+    padding: 4px 2px;
+    position: absolute;
+    top: 73px;
+    width: 169px;
+}
+
+#comme_rank li img {
+    height: 110px;
+    width: 173px;
+}
+
+#comme_rank .twcm {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_cm.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    height: 43px;
+    line-height: 12px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 45px;
+    z-index: 100;
+}
+
+#tweet_rank2 li:hover,#comme_rank li:hover {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_rtrankbg.png") no-repeat scroll 1px 9px #FFFFFF;
+	border:2px solid #FF9966;
+    padding: 0px;
+}
+
+#tweet_rank2 li:hover .hover,#comme_rank li:hover .hover{
+	top: 72px;
+}
+
+#tweet_rank2 li:hover .twcm,#comme_rank li:hover .twcm {
+    right: -1px;
+    top: -1px;
+}
+
+#amazon_rank {
+    margin: 20px auto;
+    width: 730px;
+}
+
+.section .amazon {
+    margin-top: 10px;
+    width: 730px;
+}
+
+
+.section .amazon .left, .section .amazon .right {
+    cursor: pointer;
+    float: left;
+    height: 50px;
+    margin-top: 36px;
+    width: 18px;
+}
+
+.section .amazon a img {
+    border: 1px solid #AAA;
+    height: 120px;
+    margin-bottom: 2px;
+    margin-left: 14px;
+    width: 120px;
+}
+
+.section #amazon_rank .wrap {
+    float: left;
+    margin: 0 10px;
+    overflow-x: hidden;
+    position: relative;
+    width: 674px;
+}
+
+.section .azlink-widget {
+    margin-bottom: 8px;
+    position: relative;
+    width: 2000px;
+}
+
+.section .amazon .azlink-widget-item {
+    float: left;
+    font-size: 93%;
+    height: 150px;
+    line-height: 1.1;
+    margin-left: 7px;
+    margin-right: 7px;
+    overflow-y: hidden;
+    width: 158px;
+}
+
+.section .amazon .right {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_amazon_right.png") no-repeat scroll 0 0 transparent;
+}
+
+.section .amazon .left {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_amazon_left.png") no-repeat scroll 0 0 transparent;
+}
+
+/*--------------------------------------------------
+	main_col
+--------------------------------------------------*/
+#article_rss{
+    background-color: #FFFFFF;
+    border: 2px solid #AAA;
+    margin-bottom: 6px;
+}
+
+.article_ad {
+    background-color: #FFFFFF;
+    border: 2px solid #AAA;
+    margin-bottom: 6px;
+    padding: 4px;
+    text-align: center;
+}
+
+.section {
+    position: relative;
+}
+
+.section {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_h1.png") repeat-x scroll 0 0 #f7f7f7;
+    border: 2px solid #AAA;
+    margin-bottom: 8px;
+}
+
+.section h1 {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_comment.png") repeat-y scroll 640px 0 transparent;
+    border-bottom: 1px solid #AAA;
+    border-left: 5px solid #333;
+    font-size: 153.9%;
+    padding: 12px 102px 12px 8px;
+    font-family: "メイリオ",meiryo,Arial,Helvetica;
+}
+
+.section_comment {
+    font-size: 182%;
+    line-height: 20px;
+    position: absolute;
+    right: 6px;
+    text-align: center;
+    top: 6px;
+}
+
+.section_comment a {
+    display: block;
+    height: 40px;
+    width: 80px;
+}
+
+.section_comment span {
+    color: #333333;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+.info {
+    background-color: #f7f7f7;
+    border-bottom: 1px dashed #AAA;
+    line-height: 22px;
+    padding: 8px 0 2px 6px;
+}
+
+#list .info {
+    border-bottom: none;
+}
+
+.info li {
+    float: left;
+}
+
+.info li:first-child {
+    border-right: 1px dashed #AAA;
+    margin-right: 8px;
+    padding-right: 8px;
+}
+
+.info_social {
+    float: right !important;
+}
+
+.info_social .twitter-share-button {
+    width: 100px !important;
+}
+
+.info_social #___plusone_0 {
+    margin-left: 8px !important;
+    width: 64px !important;
+}
+.article_body {
+    background-color: #f7f7f7;
+    font-size: 126%;
+    line-height: 1.5;
+    padding: 12px;
+}
+
+.article_body span{
+	font-family: "メイリオ",meiryo,Arial,Helvetica;
+}
+
+.more {
+    border: 1px solid #AAA;
+    margin: 12px 24px;
+    padding: 3px;
+	border-radius: 6px;		/* CSS3草案 */
+	-webkit-border-radius: 6px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 6px;	/* Firefox用 */
+
+}
+.more a {
+    background-color: #E5EBEE;
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    color:#333;
+    text-decoration: none;
+}
+
+.more a:hover {
+    background-color: #ffeee6;
+    color:#FF9966;
+}
+
+.all_article{
+    border: 1px solid #AAA;
+    margin: 12px 24px;
+    padding: 3px;
+	border-radius: 6px;		/* CSS3草案 */
+	-webkit-border-radius: 6px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 6px;	/* Firefox用 */
+
+}
+
+.all_article{
+    border: 1px solid #AAA;
+    margin: 12px 24px;
+    padding: 3px;
+	border-radius: 6px;		/* CSS3草案 */
+	-webkit-border-radius: 6px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 6px;	/* Firefox用 */
+
+}
+
+.section_ad {
+    margin: 0 auto 16px;
+    width: 660px;
+}
+
+#individual .section_ad {
+    margin-top:20px;
+}
+
+.section_ad .left {
+    float: left;
+}
+
+.section_ad .right{
+    float: right;
+}
+
+
+.article_body blockquote {
+    background-color: #FFF;
+    border: 1px dashed #AAA;
+    font-size: 14px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.article_body img {
+    border: 1px solid #AAA;
+    margin: 10px;
+    padding: 3px;
+}
+
+.article_body ol {
+    list-style-position: inside;
+}
+
+.all_article a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_all_article.png") repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -2px #FFFFFF, 2px 0 #FFFFFF, 0 2px #FFFFFF, -2px 0 #FFFFFF;
+}
+
+.aa {
+    font-family: "ＭＳ Ｐゴシック","Mona","mona-gothic-jisx0208.1990-0",sans-serif !important;
+
+    line-height:18px !important;
+}
+
+.aa span{
+    font-family: "ＭＳ Ｐゴシック","Mona","mona-gothic-jisx0208.1990-0",sans-serif !important;
+
+    line-height: 18px !important;
+}
+
+#article_rank {
+    background-color: #FFFFFF;
+    border: 2px solid #AAA;
+    margin-bottom: 6px;
+    padding: 4px;
+}
+
+#individual #article_rank {
+    border:0px;
+}
+
+#acrp12_kinisoku table {
+    width: 740px !important;
+}
+#acrp12_kinisoku td {
+    border-bottom: 1px dashed #DDDDDD;
+    padding: 2px 6px !important;
+}
+
+
+/*--------------------------------------------------
+	pagenav
+--------------------------------------------------*/
+#summary #pagenav, #list #pagenav{
+    display: block;
+    margin: 0 auto;
+    padding: 4px 0 10px;
+    text-align: center;
+}
+#summary .index-navigator-outer, #list .index-navigator-outer{
+    text-align: center !important;
+}
+
+#summary .index-navigator li, .paging-number, .paging-number li,#list .index-navigator li {
+	display: inline-block;
+	/display: inline;
+	/zoom: 1;
+}
+
+#summary .current,#list .current {
+    background-color: #555;
+    color: #FFFFFF !important;
+	display: inline-block;
+	/display: inline;
+	/zoom: 1;
+    font-weight: normal;
+    line-height: 28px;
+    margin: 0 2px;
+    padding: 0 10px !important;
+    text-decoration: none !important;
+    vertical-align: top;
+	border: 1px solid #AAA;
+}
+
+#summary #pagenav a,#list #pagenav a {
+	border: 1px solid #AAA;
+    background-color: #FFFFFF;
+    color: #000000 !important;
+    cursor: pointer;
+	display: inline-block;
+	/display: inline;
+	/zoom: 1;
+    font-weight: normal;
+    line-height: 28px;
+    margin: 0 2px;
+    padding: 0 10px !important;
+    text-decoration: none !important;
+}
+
+#summary #pagenav a:hover,#list #pagenav a:hover {
+    background-color: #555;
+    color: #FFFFFF !important;
+}
+
+#individual #pagenav {
+    background-color: #FFFFFF;
+    border: 2px solid #AAA;
+    margin: 10px 0;
+}
+
+#individual #pagenav .prev {
+    border-right: 1px dashed #CCCCCC;
+    float: left;
+    text-align: left;
+}
+
+#individual #pagenav .next {
+    float: right;
+    text-align: right;
+}
+
+#individual #pagenav a {
+    display: inline-block;
+    font-size: 108%;
+    min-height: 50px;
+    padding: 8px;
+}
+
+
+#individual #pagenav .prev a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_prev.png") no-repeat scroll 6px center #FFFFFF;
+    padding-left: 26px;
+    width: 340px !important;
+}
+
+#individual #pagenav .next a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_next.png") no-repeat scroll 352px center #FFFFFF;
+    padding-right: 24px;
+    width: 340px !important;
+}
+
+/*--------------------------------------------------
+	コメント
+--------------------------------------------------*/
+.section h4 {
+    background-color: #F7F7F7;
+    border-color: #FF3000 #CCCCCC #CCCCCC;
+    border-style: solid;
+    border-width: 3px 1px 1px;
+    font-size: 123.1%;
+    margin: 16px 0 10px;
+    padding: 4px 8px;
+}
+
+.comment_wrap {
+    margin-bottom: 10px;
+    padding: 6px 10px;
+}
+
+.comment_header span {
+    color: #118D43;
+    margin: 0 4px;
+}
+
+.comment_body {
+    font-size: 108%;
+    margin: 10px 16px;
+}
+
+.popup{
+    background-color: #FFF;
+    border: 1px solid #CCCCCC;
+    padding:10px;
+}
+
+.popup .comme_res{
+	display:none;
+}
+
+.comment_footer {
+    text-align: right;
+}
+
+#form_wrap {
+    background-color: #FAFAFA;
+    border: 1px solid #CCCCCC;
+    margin: 16px;
+    padding: 16px;
+}
+
+#form_wrap .all_article {
+    margin: 12px 0;
+}
+
+#comment-form p {
+    margin: 6px 0;
+}
+
+#comment-form #author {
+    width: 200px;
+}
+
+#comment-form #text {
+    height: 120px;
+    width: 670px;
+}
+
+#comment-form .button {
+    padding: 4px 0;
+    width: 670px;
+}
+
+
+/*--------------------------------------------------
+	side
+--------------------------------------------------*/
+.sidewrapper {
+    background-color: #FFFFFF;
+    border: 2px solid #AAA;
+    margin-bottom: 6px;
+}
+
+.sidetitle {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_h3.png") repeat-x scroll 0 bottom #FFFFFF;
+    border-bottom: 1px solid #AAA;
+    border-left: 5px solid #333;
+    font-weight: bold;
+    line-height: 30px;
+    padding: 0 8px;
+}
+
+.sidewrapper .hatena-bookmark-widget-title ,.sidewrapper .hatena-bookmark-widget-footer{
+	display:none;
+}
+
+.sidewrapper .side .hatena-bookmark-widget-body li {
+    border-top: 1px dashed #CCCCCC;
+    display: block;
+    margin-top: -1px;
+    padding: 6px;
+}
+
+.sidewrapper .side .hatena-bookmark-widget-body li:first-child {
+    border: none !important;
+}
+
+.side a.hatena-bookmark-entrytitle {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_arrow.png") no-repeat scroll 0 2px transparent;
+    display: block;
+    padding-left: 16px;
+}
+
+.side .hatena-bookmark-count strong,.side .hatena-bookmark-count em {
+    display: block;
+    text-align: right;
+}
+
+.side .hatena-bookmark-widget-body strong a,.side  .hatena-bookmark-widget-body em a {
+    background: none repeat scroll 0 0 #FFDDDD;
+    color: red;
+    font-family: arial,helvetica;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#aside .plugin-memo .side {
+    text-align: center;position: relative;
+}
+
+#aside .plugin-memo .amazon {
+    margin: 8px 0;
+}
+
+.populararticles-rank {
+    padding: 6px 8px;vertical-align: top;
+}
+
+.populararticles-title {
+    padding: 6px 8px;
+}
+.populararticles-title a {
+    display: block;
+    overflow: hidden;
+    width: 188px;
+}
+.plugin-memo .hatena-bookmark {
+    text-align: left;
+}
+
+.popular-articles tbody tr {
+    border-top: 1px dashed #AAA;
+}
+
+.popular-articles tbody tr:first-child {
+    border-top:none;
+}
+
+#about li {
+    border-top: 1px dashed #AAA;
+    text-align: left;
+}
+
+#about li:first-child {
+    border-top: medium none;
+}
+
+#about li a {
+    color: #333333;
+    display: block;
+    font-size: 93%;
+    line-height: 1.3;
+    padding: 6px 0 6px 136px;
+}
+
+#about li a:hover {
+    color:#FF9966;
+    opacity: 0.7;
+}
+
+#about .mail a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_aside_mail.png") no-repeat scroll 10px center #FFFFFF;
+}
+
+#about .rss a{
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_aside_rss.png") no-repeat scroll 10px center #FFFFFF;
+}
+
+#about .follow a{
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_aside_twitter.png") no-repeat scroll 10px center #FFFFFF;
+}
+
+#about .htb a{
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_aside_htb.png") no-repeat scroll 10px center #FFFFFF;
+}
+
+.side form {
+    padding: 8px 6px !important;
+}
+
+.side ul.recent-article-image li {
+    border-top: 1px dashed #AAA;
+    margin-bottom: 6px;
+    padding: 6px;
+    margin-top:-1px;
+}
+
+.side ul.recent-article-image li img {
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+.plugin-recent_articles li {
+    border-top: 1px dashed #CCCCCC;
+    display: block;
+    margin-top: -1px;
+    padding: 6px;
+}
+
+.plugin-recent_articles .sidebody,.plugin-categorize .sidebody{
+    border-top: 1px dashed #CCCCCC;
+    display: block;
+    margin-top: -1px;
+    padding: 6px;
+}
+
+.plugin-recent_articles .sidebody a,.plugin-categorize .sidebody a{
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_arrow.png") no-repeat scroll 0 2px transparent;
+    display: block;
+    padding-left: 16px;
+}
+
+
+/*--------------------------------------------------
+	section_bottom
+--------------------------------------------------*/
+.section h3 {
+    border-bottom: 1px dashed #AAA;
+    border-left: 5px solid #333;
+    font-size: 138.5%;
+    margin: 20px 0;
+    padding: 6px;
+}
+
+#social_bottom {
+    margin: 20px auto 0;
+    width: 670px;
+}
+
+
+
+#social_bottom .twt{
+    float: left;
+}
+
+#social_bottom .twt a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_twt.png") no-repeat scroll 20px center #26B4E2;
+    border: 2px solid #26B4E2;
+    color: #FFF;
+    line-height: 32px;
+    padding-left: 150px;
+	font-weight: bold;
+}
+
+#social_bottom .twt a:hover {
+    border: 2px solid #FF9966;
+    text-decoration: underline;
+}
+
+#social_bottom .htb{
+    float: right;
+}
+
+#social_bottom .htb a{
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_htb.png") no-repeat scroll 20px center #2c6ebd;
+    border: 2px solid #2c6ebd;
+    color: #FFF;
+	font-weight: bold;
+    line-height: 32px;
+    padding-left: 150px;
+}
+
+#social_bottom .htb a:hover {
+    border: 2px solid #FF9966;
+    text-decoration: underline;
+}
+
+
+#social_bottom li a {
+    display: block;
+    font-size: 13px;
+    width: 170px;
+    text-decoration: none;
+}
+
+.related-articles li a {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_arrow.png") no-repeat scroll 8px 10px transparent;
+    border-bottom: 1px dashed #AAA;
+    display: block;
+    font-size: 108%;
+    padding: 6px 0 6px 24px;
+}
+
+.related-articles li a:hover {
+    background-color:#fff6f2;
+}
+
+.section_bottom_ad {
+    background-color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.section .section_bottom_ad {
+    background-color: #f7f7f7 !important;
+}
+
+#rss_premium {
+    height: 460px;
+    overflow: hidden;
+    width: 748px;
+}
+
+#rss_premium_in {
+    margin-top: -450px !important;
+}
+
+.section #rss_premium_in body{
+    background-color: #FFF !important;
+}
+
+
+/*--------------------------------------------------
+	footer
+--------------------------------------------------*/
+#footer {
+    clear: both;
+    position: relative;
+}
+
+#footer_ad {
+    padding: 10px 0;
+    text-align: center;
+}
+
+address {
+    font-style: normal;
+    margin-top: 10px;
+}
+
+address .address_in {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_footer_logo.png") no-repeat scroll 220px center transparent;
+    margin: 0 auto;
+    padding: 24px 0 24px 350px;
+    width: 650px;
+}
+
+address .address_in img{
+	vertical-align: middle;
+}
+
+#fnav {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_nav.png") repeat-x scroll right 0 transparent;
+    border: 1px solid #555555;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+#fnav li {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_navli.png") repeat-y scroll right 0 transparent;
+    float: left;
+    text-align: center;
+}
+
+#fnav .pagetop {
+    background: url("http://blog.livedoor.jp/kinisoku/new/kini_navli.png") repeat-y scroll left 0 transparent;
+    float: right;
+}
+
+#fnav li a {
+    background-color: transparent;
+    color: #FFFFFF;
+    display: block;
+    line-height: 35px;
+    width: 114px;
+}
+
+#fnav li a img {
+    margin-right: 4px;
+    vertical-align: text-top;
+}
+
+#fnav .pagetop a{
+    width: 150px;
+}
+
+
+#fnav li a:hover {
+    background-color:#111;
+}
+
+#footer .sidewrapper {
+    float: left;
+    margin-left: 8px;
+    width: 324px;
+}
+#footer div:first-child {
+    margin-left: 0;
+}
+
+#footer_rss {
+    height: 580px;
+    overflow: hidden;
+    width: 324px;
+}
+
+#footer_rss_in {
+    margin-top: -1000px !important;
+}
+
+#footer .hatena-bookmark,#footer .popular-articles {
+    height: 580px;
+}
+
+
+/*--------------------------------------------------
+	ここから足した
+--------------------------------------------------*/
+
+
+.id {
+    color:#0000ff;
+background-color:#ddd;
+font-weight:bold;
+}
+#moretop_ad{margin-bottom:70px;margin-top: 20px;padding:0 42px 0 20px;}
+#moretop_ad .inner_left{float: left;}
+#moretop_ad .inner_right{float: right;}
+.article_body #moretop_ad img{border:none;}
+a .noborder {border-bottom:1px solid transparent!important;}
+a:hover .noborder {border-bottom:1px solid #0066CC!important;}
+
+.fixed {
+
+  position: fixed;
+  top: 12px;
+  width: 240px;
+}
+
+#fix_sidewrapper .sidewrapper {
+  padding: 10px 0;
+  text-align: center;
+}
+.sp_ad{
+   display: none;
+}
+
+
+#tweet_rank,#tweet_rank2,#comme_rank {
+display:none!important;
+}
+
+
+/*--------------------------------------------------
+	popularArticlesWithImage
+--------------------------------------------------*/
+.popularArticlesWithImage li{border:2px solid #aaa; float:left; height:110px; margin-right:8px; overflow:hidden; padding:1px; position:relative; vertical-align:top; width:176px}
+.popularArticlesWithImage li+li+li+li{margin-right:0!important}
+.popularArticlesWithImage li:hover{border:2px solid #f96}
+.popularArticlesWithImage li .title{background:url("http://blog.livedoor.jp/kinisoku/new/kini_twtrank.png") repeat scroll 0 0 transparent !important; bottom:1px; height:28px; left:1px; overflow:hidden; padding:4px; position:absolute; width:168px !important}
+.popularArticlesWithImage li .retweet{font-size:12px;background:url("http://blog.livedoor.jp/kinisoku/new/kini_rt.png") no-repeat scroll 0 0 transparent !important; color:#fff; height:43px; line-height:24px; padding-top:4px; position:absolute; right:0; text-align:center; top:0; width:45px; z-index:100}
+#popular1 .popularArticlesWithImage{height:116px; margin-bottom:6px; overflow:hidden}
+#popular1 .popularArticlesWithImage li{margin-right:8px;}
+#popular2 .popularArticlesWithImage {height: 240px;margin-bottom: 6px;margin-left: 6px;overflow: hidden;}
+#popular2 .popularArticlesWithImage li{margin-right:3px;margin-bottom:6px;}
+#popular2 .popularArticlesWithImage li+li+li+li+li{margin-right:3px!important}
+.popularArticlesWithImage .noimage{background:url("http://blog.livedoor.jp/kinisoku/new/kini_rtrankbg.png") no-repeat scroll 0 0 #fff;display:block;height:110px;width:176px;}
+
+.g-rank {
+  display: block;
+  height: 500px;
+  padding: 0 10px;
+}
+
+
+
+
+/*--------------------------------------------------
+	ジャック用CSS
+--------------------------------------------------*/
+
+#banner{
+margin:0px 0px 0px auto;
+}
+#wrap{
+width:100%; height:100%;
+position:absolute; top:0px; left:0px;
+text-align:center;
+}
+

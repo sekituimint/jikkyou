@@ -210,6 +210,9 @@ class MainApp < Sinatra::Base
   get '/channel/detail/:id' do
     @channel = Channel.where(:id => params[:id])[0]
     @contents = Content.where(:channelid => @channel.id)
+    #sidebar表示用
+    @allchannel = Channel.all.sort_by{|channel| channel.id}.reverse
+
     haml :jikkyoudetail
   end
 
