@@ -31,9 +31,9 @@
         =" : "
         =content.nowtime
         ="("
-        #{content.tweetstime/60}
+        #{sprintf("%02d", content.tweetstime/60)}
         =":"
-        #{content.tweetstime%60}
+        #{sprintf("%02d",content.tweetstime%60)}
         =")"
 
         %br
@@ -69,25 +69,6 @@
           %font{:size => "1",:color => "silver"}
             %span{:style => "line-height:16px;"}
               =content.tweets
-
-
-
         %br
         %br
-    %h2 実況一覧
-    %table{:class => "table table-hover"}
-      %thead
-        %tr
-          %th 名前　　　　　　　　　　　　　　　　　　　　　
-          %th 上へ
-          %th 下へ
-      %tbody
-        - @contents.each_with_index do |content,i|
-          %tr{:class => "info"}
-            %td{:align =>"center"}
-              =content.tweets
-            %td
-              =content.tweetstime
-            %td
-              =content.value
   .span4
