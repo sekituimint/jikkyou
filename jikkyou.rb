@@ -139,6 +139,23 @@ class MainApp < Sinatra::Base
     rtn.to_json
   end
 
+  #チャンネル一覧ページ
+  get '/channel/list' do
+    @allchannel = Channel.all.sort_by{|channel| channel.id}.reverse
+    #月別リスト作成
+    @monthlist = []
+    nowmonth = 0
+    @allchannel.each_with_index do |channel,i|
+      tmpmonth = channel.starttime.split("/")[0].to_i*12 + channel.starttime.split("/")[1].to_i
+      if tmpmonth != nowmonth
+        @monthlist.push(tmpmonth)
+        nowmonth = tmpmonth
+      end
+    end
+    haml :channellist
+  end
+
+
   #実況終了時チャンネル更新ページ
   get '/channels/end' do
     channel = Channel.where(:id => params[:cid])[0]
@@ -190,20 +207,9 @@ class MainApp < Sinatra::Base
   end
 
   post '/' do
-    #  title = "登板スクリプト"
     group = Group.new(:name => params[:name],:mini => params[:mini],:interval => 0,:renew => 0,:noworder => 0)
     group.save
     redirect "#{@path_prefix}/"
-  end
-
-  get '/atarashiihyou' do
-    haml :newhyou
-  end
-
-  get '/groups/:id' do
-    group = Group.where(:id => params[:id])
-    @name = group[0].name
-    haml :groupdetail
   end
 
   #それぞれの実況詳細画面
@@ -212,94 +218,40 @@ class MainApp < Sinatra::Base
     @contents = Content.where(:channelid => @channel.id)
     #sidebar表示用
     @allchannel = Channel.all.sort_by{|channel| channel.id}.reverse
-
+    #月別リスト作成
+    @monthlist = []
+    nowmonth = 0
+    @allchannel.each_with_index do |channel,i|
+      tmpmonth = channel.starttime.split("/")[0].to_i*12 + channel.starttime.split("/")[1].to_i
+      if tmpmonth != nowmonth
+        @monthlist.push(tmpmonth)
+        nowmonth = tmpmonth
+      end
+    end
     haml :jikkyoudetail
   end
 
-  #コンフィグ画面
-  get '/config/:id' do
-    #ナビバー表示用
-    groups = Group.all
-    @namelist = []
-    @minilist = []
-    @idlist = []
-    groups.each do |group|
-      @namelist.push(group.name)
-      @minilist.push(group.mini)
-      @idlist.push(group.id)
-    end
+  #月別リスト表示
+  get '/channel/month/:id' do
+    @allchannel = Channel.all.sort_by{|channel| channel.id}.reverse
+    #その月のリスト
+    @monthchannel = []
+    #月別リスト作成
+    @monthlist = []
+    nowmonth = 0
 
-    group = Group.where(:id => params[:id])
-    @users = User.where(:groupid => params[:id]).sort_by{|user| user.order}
-    @name = group[0].name
-    @noworder = group[0].noworder
-    @groupid = group[0].id
-    @id = group[0].id
-    haml :groupconfig
-  end
-
-
-  #新規ユーザ登録後戻ってくる画面
-  post '/config/:id' do
-    group = Group.where(:id => params[:id])
-    beforeusers = User.where(:groupid => params[:id]).sort_by{|user| user.order}
-    adduser = User.new(:name => params[:name],:email => params[:email],:groupid => params[:id],:order => beforeusers.size)
-    adduser.save
-    @users = User.where(:groupid => params[:id]).sort_by{|user| user.order}
-    @name = group[0].name
-    @noworder = group[0].noworder
-    @groupid = group[0].id
-    @id = group[0].id
-    redirect "#{@path_prefix}/config/" + params[:id]
-  end
-
-  #上と順番を変更
-  get '/config/up/:groupid/:upid' do
-    group = Group.where(:id => params[:groupid])
-    usersita = User.where(:groupid => params[:groupid],:order => params[:upid])
-    userue = User.where(:groupid => params[:groupid],:order => params[:upid].to_i - 1)
-
-    tmp = usersita[0].order
-    usersita[0].order = userue[0].order
-    userue[0].order = tmp
-    usersita[0].save
-    userue[0].save
-    #ポインタあるときの移動
-    if usersita[0].order == group[0].noworder
-      group[0].noworder = userue[0].order
-      group[0].save
-    else
-      if userue[0].order == group[0].noworder
-        group[0].noworder = usersita[0].order
-        group[0].save
+    #登録
+    @allchannel.each_with_index do |channel,i|
+      tmpmonth = channel.starttime.split("/")[0].to_i*12 + channel.starttime.split("/")[1].to_i
+      if tmpmonth == params[:id].to_i
+        @monthchannel.push(channel)
+      end
+      if tmpmonth != nowmonth
+        @monthlist.push(tmpmonth)
+        nowmonth = tmpmonth
       end
     end
-    redirect "#{@path_prefix}/config/" + params[:groupid]
+    haml :monthchannel
   end
 
-  #ユーザーの削除
-  get '/config/delete/:groupid/:deleteid' do
-    group = Group.where(:id => params[:groupid])
-    deleteuser = User.where(:groupid => params[:groupid],:order => params[:deleteid])
-    deleteuser[0].destroy
-    users = User.where(:groupid => params[:groupid])
-    users.each do  |user|
-      if user.order > params[:deleteid].to_i
-        user.order = user.order - 1
-        user.save
-      end
-    end
-    redirect "#{@path_prefix}/config/" + params[:groupid]
-  end
-
-  #グループの削除
-  post '/deletegroup/:groupid' do
-    group = Group.where(:id => params[:groupid])
-    if params[:pass] == "Pnd#Li4!"
-      group[0].destroy
-      redirect "#{@path_prefix}/"
-    else
-      redirect "#{@path_prefix}/config/" + params[:groupid]
-    end
-  end
 end

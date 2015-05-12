@@ -107,7 +107,12 @@
                 ="月別一覧"
             .sidetop
             .side
-              .sidebody.category-parent
-                作成中
+              - @monthlist.each_with_index do |month|
+                .sidebody.category-parent
+                  %a{:href => "#{@path_prefix}/channel/month/#{month}"  }
+                    =month/12
+                    ="年"
+                    =month%12
+                    ="月"
             .sidebottom
   .span4
